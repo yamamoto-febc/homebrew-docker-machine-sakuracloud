@@ -3,16 +3,16 @@ require "language/go"
 class DockerMachineSakuracloud < Formula
   desc "Docker Machine SAKURA CLOUD Driver"
   homepage "https://github.com/yamamoto-febc/docker-machine-sakuracloud"
-  url "https://github.com/yamamoto-febc/docker-machine-sakuracloud/archive/v0.0.2.tar.gz"
-  sha256 "ff5262b484272c7f566fed859316612eb8052b281c12beea9103135568bd8fcb"
+  url "https://github.com/yamamoto-febc/docker-machine-sakuracloud/archive/v0.0.3.tar.gz"
+  sha256 "f458e8fb4068a4bed326e373076668c18d407830c2a2064cc0b94cde2b35aa41"
   head "https://github.com/yamamoto-febc/docker-machine-sakuracloud.git"
 
   bottle do
     root_url "https://bintray.com/artifact/download/yamamoto-febc/bottles"
     cellar :any_skip_relocation
-    sha256 "f4dbceb12fa931c4920ed2120d1fd57c74ee962914ccc19238d17d4f2c4d1cfc" => :el_capitan
-    sha256 "fbcef6c5fb0f0d659ee45ef816dc68933c1b5f95cafb0da0a49dcdf37fcc6392" => :yosemite
-    sha256 "9da259110485d66d50ff00f15eb7ba0e50f5c6c3d3505de1139802d7841510c4" => :mavericks
+    sha256 "1968078799a76c827148a7e1a9f2bec648dfee299ce4772a7d457e1d22a0711e" => :el_capitan
+    sha256 "9c05c828be74f4dd4ee86d621145a1337573537cb18ee3060874a56a7ccc10f1" => :yosemite
+    sha256 "6eb154b93295a1fd36528fddd8b6ba5dd1ee792eb88902396a188fcc3aa801cd" => :mavericks
   end
 
   depends_on "go" => :build
