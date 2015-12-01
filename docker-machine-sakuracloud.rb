@@ -3,31 +3,33 @@ require "language/go"
 class DockerMachineSakuracloud < Formula
   desc "Docker Machine SAKURA CLOUD Driver"
   homepage "https://github.com/yamamoto-febc/docker-machine-sakuracloud"
-  url "https://github.com/yamamoto-febc/docker-machine-sakuracloud/archive/v0.0.4.tar.gz"
-  sha256 "6e57af22cb20b52fe9f5e6701d72d9aec4def40c79d580e75a94987bb5382a01"
+  url "https://github.com/yamamoto-febc/docker-machine-sakuracloud/archive/v0.0.5.tar.gz"
+  sha256 "b8c0cd4b533121bd9d0ae792a435855e2a832eccbe0e4b92fc3d30e21c7f7f37"
   head "https://github.com/yamamoto-febc/docker-machine-sakuracloud.git"
 
   bottle do
     root_url "https://bintray.com/artifact/download/yamamoto-febc/bottles"
     cellar :any_skip_relocation
-    sha256 "8d2fd9c22603f6d29a215e65601cfe70fb64843d837acefbe1bb86fd020f6726" => :el_capitan
-    sha256 "95571608554d80681a19153ea53e5224c4cc95445ad0fc9fea0ed140205e9319" => :yosemite
-    sha256 "8f7ae6a9dd9ca9f5a7ab7cc6e6c02e1b39ae92f9c7881409e09bd8b21f1944d7" => :mavericks
+    sha256 "598fc1842fc69c6da7f93a305f452258f7d2c251e0a83feb8b96bb7ef2ed1434" => :el_capitan
+    sha256 "aff90cf42a4ca5408640fa5c4283f8dc7056fd3dec727fbc8d0af0f15fc8f9f7" => :yosemite
+    sha256 "7cd82dbae689813d4e46f0895e8fecc4e2713eeb0e9f37dcbf991d0ffa8bf5fe" => :mavericks
   end
 
   depends_on "go" => :build
   depends_on "docker-machine"
 
   go_resource "github.com/docker/docker" do
-    url "https://github.com/docker/docker.git", :revision => "76d6bc9a9f1690e16f3721ba165364688b626de2"
+    # Docker v1.9.1 release
+    url "https://github.com/docker/docker.git", :revision => "a34a1d598c6096ed8b5ce5219e77d68e5cd85462"
   end
 
   go_resource "github.com/docker/machine" do
-    url "https://github.com/docker/machine.git", :revision => "04cfa58445f063509699cdde41080a410330c4df"
+    # Docker Machine v0.5.1 release
+    url "https://github.com/docker/machine.git", :revision => "7e8e38e1485187c0064e054029bb1cc68c87d39a"
   end
 
   go_resource "golang.org/x/crypto" do
-    url "https://github.com/golang/crypto.git", :revision => "8b27f58b78dbd60e9a26b60b0d908ea642974b6d"
+    url "https://go.googlesource.com/crypto.git", :revision => "beef0f4390813b96e8e68fd78570396d0f4751fc"
   end
 
   def install
