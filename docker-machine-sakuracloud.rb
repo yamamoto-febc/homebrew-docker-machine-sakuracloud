@@ -3,16 +3,16 @@ require "language/go"
 class DockerMachineSakuracloud < Formula
   desc "Docker Machine SAKURA CLOUD Driver"
   homepage "https://github.com/yamamoto-febc/docker-machine-sakuracloud"
-  url "https://github.com/yamamoto-febc/docker-machine-sakuracloud/archive/v0.0.5.tar.gz"
-  sha256 "b8c0cd4b533121bd9d0ae792a435855e2a832eccbe0e4b92fc3d30e21c7f7f37"
+  url "https://github.com/yamamoto-febc/docker-machine-sakuracloud/archive/v0.0.7.tar.gz"
+  sha256 "2de357884d466eec33b38cbe453cbfebe9fbd063a56afabf015b29037615f698"
   head "https://github.com/yamamoto-febc/docker-machine-sakuracloud.git"
 
   bottle do
     root_url "https://bintray.com/artifact/download/yamamoto-febc/bottles"
     cellar :any_skip_relocation
-    sha256 "598fc1842fc69c6da7f93a305f452258f7d2c251e0a83feb8b96bb7ef2ed1434" => :el_capitan
-    sha256 "aff90cf42a4ca5408640fa5c4283f8dc7056fd3dec727fbc8d0af0f15fc8f9f7" => :yosemite
-    sha256 "7cd82dbae689813d4e46f0895e8fecc4e2713eeb0e9f37dcbf991d0ffa8bf5fe" => :mavericks
+    sha256 "600c1977c1bfff81bb8a580f9c61c3f7b6a1955f9fbe5d3feb617843930f0584" => :el_capitan
+    sha256 "944249881d1260228da1d9dd3c15e02bafd51bef4ff38616731ca7b644b9dd79" => :yosemite
+    sha256 "d28a39ee31aca4cb26a0c958984102fca86c18011fc5b337ce44e9d943a028d5" => :mavericks
   end
 
   depends_on "go" => :build
@@ -24,12 +24,16 @@ class DockerMachineSakuracloud < Formula
   end
 
   go_resource "github.com/docker/machine" do
-    # Docker Machine v0.5.1 release
-    url "https://github.com/docker/machine.git", :revision => "7e8e38e1485187c0064e054029bb1cc68c87d39a"
+    # Docker Machine v0.5.5 release
+    url "https://github.com/docker/machine.git", :revision => "02c4254cb4c93a4bbb5dc4ca0467abeb12d72546"
   end
 
   go_resource "golang.org/x/crypto" do
-    url "https://go.googlesource.com/crypto.git", :revision => "beef0f4390813b96e8e68fd78570396d0f4751fc"
+    url "https://go.googlesource.com/crypto.git", :revision => "f18420efc3b4f8e9f3d51f6bd2476e92c46260e9"
+  end
+
+  go_resource "github.com/codegangsta/cli" do
+    url "https://github.com/codegangsta/cli.git", :tag => "v1.2.0", :revision => "565493f259bf868adb54d45d5f4c68d405117adf"
   end
 
   def install
